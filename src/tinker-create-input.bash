@@ -11,7 +11,7 @@ bin_mod=${HOME}/Dropbox/Research/software/src/tinker-mod/bin # modded to connect
 a_unitcells=1
 b_unitcells=1
 c_unitcells=1
-benzene_molecules=10
+benzene_molecules=0
 output_xyz_file=MOFwithBenzene.xyz
 output_key_file=${output_xyz_file%.xyz}.key
 ff=Schmid
@@ -120,6 +120,7 @@ rm tinker.key
 sed -i -e "2d" ${input_xyz_file_MOF}_$((2 * ${a_unitcells} * ${b_unitcells} * ${c_unitcells} + 2))
 
 # translate benzene
+if [ $benzene_molecules -gt 0 ]; then
 benzene_molec=0
 benzene_molecs_per_c_cage=$(($benzene_molecules / (4 * $a_unitcells * $b_unitcells) + 1))
 a_cage=0
@@ -215,3 +216,9 @@ rm ${input_xyz_file_ben}_*
 echo inactive -$(expr $benzene_molecules \* 12 + 1) $(expr $benzene_molecules \* 12 + $a_unitcells \* $b_unitcells \* $c_unitcells \* 424) >> $output_key_file
 $bin/minimize MOFwithBenzene 10
 head -n -1 $output_key_file > temp_key_file; mv temp_key_file $output_key_file
+
+# if no benzene molecules
+else
+cp ${input_xyz_file_MOF}_$((2 * ${a_unitcells} * ${b_unitcells} * ${c_unitcells} + 2)) ${output_xyz_file}
+rm ${input_xyz_file_MOF}_*
+fi
