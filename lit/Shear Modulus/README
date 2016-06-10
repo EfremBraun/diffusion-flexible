@@ -1,0 +1,4 @@
+Allendorf: Used DFT to calculate shear modulus of MOF-5
+Goddard: section 3.3 describes how to get shear modulus using molecular simulations
+Mehl: detailed description of how to get shear modulus using molecular simulations. Referenced by Schmid
+Schmid: section 3.3 describes how he got the shear modulus of his MOF-5 force field using molecular simulations and compared it to Allendorf's
