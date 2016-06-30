@@ -1,0 +1,8 @@
+Whitelam 2016: study in which they measured the diffusion coefficients of molecules inside of MOF-74 using the potential energies measured by
+Thonhauser 2013: study in which they measured potential energies of adsorbates inside of MOF-74 using DFT. Your main job is to replicate Figure 2b of this paper but using a force field, and then to make them free energies instead of potential energies.
+Smit 2016: study in which they generated force fields for CO2 and H2O in MOF-74. You'd have to implement these force fields into RASPA.
+
+RASPA is available for download from https://github.com/numat/RASPA2/. There's a great manual in Docs/raspa.pdf. The manual doesn't state it, but if you use the keyword 'ComputeFreeEnergyProfile' then it'll compute the free energies for you using Widom insertions. Not sure how well it works.
+I've also included the manual of an earlier version of RASPA called COTA. Chapter 16 of the COTA manual is worth a read to learn about free energies profiles.
+
+I'd first take a look at Berend's book, section 7.2.1, which covers Widom insertions. TO understand it, you may first need to read chapter 2. You won't understand everything, I promise you, so don't try. Just get to a point where you understand the idea of how Widom insertions can give you free energies.
